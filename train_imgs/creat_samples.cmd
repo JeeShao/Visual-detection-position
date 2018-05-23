@@ -1,0 +1,1 @@
+opencv_createsamples -vec train.vec -info info.dat -bg bg.txt -num 1600 -w 40 -h 60
