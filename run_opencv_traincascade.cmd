@@ -1,0 +1,1 @@
+opencv_traincascade.exe -data classifier -vec train_imgs/train.vec -bg train_imgs/bg.txt -numPos 200 -numNeg 250 -numStages 5 -w 40 -h 60 -minHitRate 0.995 -maxFalseAlarmRate 0.5 -weightTrimRate 0.95 -maxDepth 1 -maxWeakCount 100 -stageType BOOST -featureType HAAR -precalcValBufSize 1024 -precalcIdxBufSize 1024 -mode BASIC
