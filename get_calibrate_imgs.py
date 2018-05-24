@@ -6,15 +6,24 @@
 # @File    : get_calibrate_imgs.py
 
 import cv2
-cap = cv2.VideoCapture(1)
-path = './chessboard/'
-i = 1
-while True:
-    ret ,img = cap.read()
-    if ret:
-        cv2.imshow("img",img)
-        img = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
-        if cv2.waitKey(10) & 0xff == ord('m'):
-            cv2.imwrite(path+"%d.jpg"%i,img)
-            print(i)
-            i+=1
+import numpy as np
+
+mtx = np.array([[1.01067049e+03, 0.00000000e+00 ,4.25658858e+02], [0.00000000e+00 ,1.03918088e+03 ,2.30468360e+02],
+ [0.00000000e+00, 0.00000000e+00, 1.00000000e+00]])
+
+dist = np.array([[-1.48376195e+00 ,-2.72491765e+00 , 9.05602739e-03, -1.54136710e-01, 2.09607881e+01]])
+
+img = cv2.imread('./test_imgs/10001.jpg')
+
+h,  w = img.shape[:2]
+
+newcameramtx, roi=cv2.getOptimalNewCameraMatrix(mtx,dist,(w,h),1,(w,h))
+
+# undistort
+dst = cv2.undistort(img, mtx, dist, None, newcameramtx)
+# mapx,mapy = cv2.initUndistortRectifyMap(mtx,dist,None,newcameramtx,(w,h),5)
+# dst = cv2.remap(img,mapx,mapy,cv2.INTER_LINEAR)
+# crop the image
+x,y,w,h = roi
+dst = dst[y:y+h, x:x+w]
+cv2.imwrite('./calibresult.jpg',dst)

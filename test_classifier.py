@@ -30,13 +30,13 @@ scale = 2  # 缩放比例
 
 
 
-img = cv2.imread('./test_imgs/test_pos.jpg')
+img = cv2.imread('./test_imgs/10002.jpg')
 gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
 img_rz = cv2.resize(gray,(gray.shape[1]//scale,gray.shape[0]//scale))
 
 # ret,img = cap.read()
 # gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-targets = cascade.detectMultiScale(img_rz, 1.2, 5)
+targets = cascade.detectMultiScale(img_rz, 1.1, 50)
 #删除重复包括的框
 tag = False
 target = []
@@ -52,10 +52,10 @@ for i in range(0,len(targets)):
 
 
 for (x,y,w,h) in target:
-    # cv2.rectangle(img,(x*scale, y*scale),((x+w)*scale, (y+h)*scale),(255,0,0),2)
+    cv2.rectangle(img,(x*scale, y*scale),((x+w)*scale, (y+h)*scale),(0,0,255),2)
 
-    cv2.rectangle(img_rz,(x, y),((x+w), (y+h)),(0, 0, 255),2)
+    # cv2.rectangle(img_rz,(x, y),((x+w), (y+h)),(255, 0, 0),2)
 
 
-cv2.imshow('img', img_rz)
+cv2.imshow('img', img)
 cv2.waitKey(0)

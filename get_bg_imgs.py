@@ -1,5 +1,11 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
+# @Time    : 2018/5/24 10:10
+# @Author  : Jee
+# @Email   : jee_shao@163.com
+# @File    : get_bg_imgs.py
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
 # @Time    : 2018/5/21 11:44
 # @Author  : Jee
 # @Email   : jee_shao@163.com
@@ -7,8 +13,8 @@
 
 import cv2
 
-i = 721
-path = './train_imgs/demo/'
+i = 1001
+path = './train_imgs/bg1/'
 cap = cv2.VideoCapture(1)
 # cap.set(cv2.CAP_PROP_FRAME_WIDTH, 40)
 # cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 30)
