@@ -30,13 +30,13 @@ scale = 2  # 缩放比例
 
 
 
-img = cv2.imread('./test_imgs/10002.jpg')
+img = cv2.imread('./test_imgs/10006.png')
 gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
 img_rz = cv2.resize(gray,(gray.shape[1]//scale,gray.shape[0]//scale))
 
 # ret,img = cap.read()
 # gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-targets = cascade.detectMultiScale(img_rz, 1.1, 50)
+targets = cascade.detectMultiScale(img_rz, 1.2, 50)
 #删除重复包括的框
 tag = False
 target = []
