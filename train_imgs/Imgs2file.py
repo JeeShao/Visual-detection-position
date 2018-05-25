@@ -7,10 +7,10 @@ import os
 import cv2
 
 
-POSTIVE_DIR = 'circle_boxs\\'
-NEGATIVE_DIR = 'bg\\'
-INFO_FILENAME = 'info.dat'
-BG_FILENAME = 'bg.txt'
+POSTIVE_DIR = 'circle\\pos\\'
+NEGATIVE_DIR = 'circle\\bg\\'
+INFO_FILENAME = 'circle\\info.dat'
+BG_FILENAME = 'circle\\bg.txt'
 
 
 this_dir = os.path.abspath(os.path.dirname(__file__))
@@ -32,7 +32,7 @@ with open(os.path.join(this_dir, INFO_FILENAME), 'wb') as file:
           file.write((img_url + " 1 0 0 %s %s\n" % (cols, rows )).encode())
 
 
-# create bg0.txt
+# create pos0.txt
 img_list = os.listdir(negative_url)
 img_list.sort(key=lambda x:int(x.split('.')[0]))
 with open(os.path.join(this_dir, BG_FILENAME), 'wb') as file:

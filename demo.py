@@ -23,7 +23,7 @@ import numpy as np
 # dst = dst[y:y+h, x:x+w]
 # cv2.imwrite('./calibresult.jpg',dst)
 
-img = cv2.imread("./train_imgs/circle_boxs0/35.jpg",0)
+img = cv2.imread("./train_imgs/pos0/35.jpg",0)
 cv2.normalize(img,img)
 cv2.imshow("a",img)
 cv2.waitKey(0)

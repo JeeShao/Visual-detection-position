@@ -8,7 +8,7 @@
 import numpy as np
 import cv2
 
-cascade = cv2.CascadeClassifier('./classifier/cascade.xml')
+cascade = cv2.CascadeClassifier('./classifier/square/cascade.xml')
 # eye_cascade = cv2.CascadeClassifier('./haarcascades/haarcascade_eye.xml')
 # cap = cv2.VideoCapture(1)
 scale = 2  # 缩放比例
@@ -30,13 +30,13 @@ scale = 2  # 缩放比例
 
 
 
-img = cv2.imread('./test_imgs/10006.png')
+img = cv2.imread('./test_imgs/21.jpg')
 gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
 img_rz = cv2.resize(gray,(gray.shape[1]//scale,gray.shape[0]//scale))
 
 # ret,img = cap.read()
 # gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-targets = cascade.detectMultiScale(img_rz, 1.2, 50)
+targets = cascade.detectMultiScale(img_rz, 1.1, 5)
 #删除重复包括的框
 tag = False
 target = []

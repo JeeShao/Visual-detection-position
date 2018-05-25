@@ -6,8 +6,8 @@
 # @File    : copy_imgs.py
 import os,shutil
 
-bg = './bg0/'
+bg = './circle/bg/'
 pos = './pos/'
 
-for i in  range(1,801):
-    shutil.copy(pos+"%d.jpg"%i,pos+"%d.jpg"%(i+800))
+for i in  range(1,2001):
+    shutil.copy(bg+"%d.jpg"%i,bg+"%d.jpg"%(i+2000))

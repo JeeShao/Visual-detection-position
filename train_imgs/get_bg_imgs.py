@@ -4,17 +4,12 @@
 # @Author  : Jee
 # @Email   : jee_shao@163.com
 # @File    : get_bg_imgs.py
-#!/usr/bin/python3
-# -*- coding: utf-8 -*-
-# @Time    : 2018/5/21 11:44
-# @Author  : Jee
-# @Email   : jee_shao@163.com
-# @File    : get_pos_imgs.py
+
 
 import cv2
 
-i = 1001
-path = './train_imgs/bg1/'
+i = 401
+path = './square/bg/'
 cap = cv2.VideoCapture(1)
 # cap.set(cv2.CAP_PROP_FRAME_WIDTH, 40)
 # cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 30)
