@@ -31,17 +31,18 @@ scale = 2  # 缩放比例
 
 
 
-img = cv2.imread('./test_imgs/26.jpg')
+img = cv2.imread('./test_imgs/6.jpg')
 gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+# gray = cv2.equalizeHist(gray)
 img_rz = cv2.resize(gray,(gray.shape[1]//scale,gray.shape[0]//scale))
 
+cir_position ,squ_position= [], []
+#删除重复包括的框
 # ret,img = cap.read()
 # gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 cir_targets = circle_cascade.detectMultiScale(img_rz, 1.1, 50)
 squ_targets = square_cascade.detectMultiScale(img_rz, 1.1, 50)
 
-cir_position ,squ_position= [], []
-#删除重复包括的框
 def trim_rectangle(targets):
     tag = False
     target = []
@@ -50,8 +51,6 @@ def trim_rectangle(targets):
             if  targets[i][0]< x0 and targets[i][1] < y0 and targets[i][2] >= x0-targets[i][0]+w0 and targets[i][3] >= y0-targets[i][1]+h0:
                 tag = False
                 break
-            else:tag = True
-        if tag:
             target.append(targets[i])
     return target
 

@@ -13,7 +13,7 @@ mtx = np.array([[1.01067049e+03, 0.00000000e+00 ,4.25658858e+02], [0.00000000e+0
 
 dist = np.array([[-1.48376195e+00 ,-2.72491765e+00 , 9.05602739e-03, -1.54136710e-01, 2.09607881e+01]])
 
-img = cv2.imread('./train_imgs/square/pos0/2.jpg')
+img = cv2.imread('./chessboard/2.jpg')
 
 h,  w = img.shape[:2]
 
